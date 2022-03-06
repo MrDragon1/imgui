@@ -284,6 +284,8 @@ void ImGui_ImplGlfw_MouseButtonCallback(GLFWwindow* window, int button, int acti
     ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
     if (bd->PrevUserCallbackMousebutton != NULL && window == bd->Window)
         bd->PrevUserCallbackMousebutton(window, button, action, mods);
+    //if (g_PrevUserCallbackMousebutton != NULL)
+    //    g_PrevUserCallbackMousebutton(g_Window, button, action, mods);
 
     ImGui_ImplGlfw_UpdateKeyModifiers(mods);
 
@@ -297,6 +299,8 @@ void ImGui_ImplGlfw_ScrollCallback(GLFWwindow* window, double xoffset, double yo
     ImGui_ImplGlfw_Data* bd = ImGui_ImplGlfw_GetBackendData();
     if (bd->PrevUserCallbackScroll != NULL && window == bd->Window)
         bd->PrevUserCallbackScroll(window, xoffset, yoffset);
+    //if (g_PrevUserCallbackScroll != NULL)
+    //    g_PrevUserCallbackScroll(g_Window, xoffset, yoffset);
 
     ImGuiIO& io = ImGui::GetIO();
     io.AddMouseWheelEvent((float)xoffset, (float)yoffset);
